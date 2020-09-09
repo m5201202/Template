@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+<ui:composition template="/templates/layout.xhtml">
+    <ui:define name="page_title">#{res.title_result}</ui:define>
+    <ui:define name="content">
+        <h2>#{res.label_result_message}</h2>
+        <h:form>
+            <p id="result-text"><h:outputText value="#{jyankenBean.result}"/></p>
+        </h:form>
+        <h:button outcome="select" value="#{res.button_result}" class="button"/>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

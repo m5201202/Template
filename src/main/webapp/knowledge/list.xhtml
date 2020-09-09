@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+<ui:composition template="/templates/layout.xhtml">
+    <ui:define name="page_title">#{res.title_knowledge_list}</ui:define>
+    <ui:define name="content">
+        <a href="add.xhtml">#{res.label_knowledge_add}</a>
+        <table class="table">
+            <tr>
+                <th>#{res.label_knowledge_title}</th>
+                <th>#{res.label_knowledge_content}</th>
+                <th>#{res.label_knowledge_createAt}</th>
+                <th>#{res.label_knowledge_updateAt}</th>
+            </tr>
+            <ui:repeat var="row" value="#{knowledgeBean.knowledgeList}">
+                <h:form>
+                    <tr>
+                        <td><h:outputText value="#{row.title}"/></td>
+                        <td><h:outputText value="#{row.description}"/></td>
+                        <td>
+                            <h:outputText value="#{row.createAt}">
+                                <f:convertDateTime pattern="yyyy/MM/dd HH:mm:dd" />
+                            </h:outputText>
+                        </td>
+                        <td>
+                            <h:outputText value="#{row.updateAt}">
+                                <f:convertDateTime pattern="yyyy/MM/dd HH:mm:dd" />
+                            </h:outputText>
+                        </td>
+                        <td><h:commandButton action="#{knowledgeBean.goEditKnowledge(row.id)}" value="#{res.label_knowledge_edit}"/></td>
+                        <td>
+                            <h:commandButton action="#{knowledgeBean.deleteKnowledge(row.id)}" value="#{res.label_knowledge_delete}"/>
+                        </td>
+                    </tr>
+                </h:form>
+            </ui:repeat>
+        </table>
+
+        <br/>
+        <h2>#{res.label_knowledge_rest_client}</h2>
+        <ui:repeat var="row" value="#{knowledgeClient.callRetrieveAllKnowledge()}">
+            <h:outputText value="#{row.title}"/><br/>
+        </ui:repeat>
+</ui:define>
+</ui:composition>
+</body>
+</html>

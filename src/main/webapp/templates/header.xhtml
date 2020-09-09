@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf">
+<body>
+<ui:composition>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="top-bar" id="responsive-menu">
+        <div class="top-bar-left" id="header">
+            <ul class="dropdown menu data-dropdown-menu">
+                <li class="app-title"><a href="#{request.contextPath}/index.xhtml"><h:outputText value="#{res.app_brand}" /></a></li>
+                <!--<li><a href="#{request.contextPath}/knowledge/list.xhtml">#{res.label_knowledge_list}</a></li>-->
+                <!--<li><a href="#{request.contextPath}/knowledge/show.xhtml">#{res.label_knowledge_details}</a></li>-->
+            </ul>
+        </div>
+    </div>
+</ui:composition>
+</body>
+</html>
